@@ -1,0 +1,76 @@
+{
+"video": [{
+  "title": "The American Revolution - Oversimplified (Part 1)",
+  "url": "https://www.youtube.com/watch?v=gzALIXcY4pg",
+  "channel": "OverSimplified",
+  "transcript": [
+    {
+      "txt": "Hooooooly smokes!",
+      "start": 1.00,
+      "duration": 1.00
+    },
+    {
+      "txt": "Christopher Columbus!",
+      "start": 2.00,
+      "duration": 1.00
+    },
+    {
+      "txt": "That is no way to address the King and Queen of Spain! What is wrong with you?",
+      "start": 3.00,
+      "duration": 3.00
+    }
+  ]
+},
+{
+  "title": "The American Revolutionary war - part 1 of 2(Documentary)",
+  "url": "https://www.youtube.com/watch?v=W74uOnlaEJg",
+  "channel": "TDC - World History Documentaries",
+  "transcript": [
+    {
+      "txt": "spring 1775 bloodshed at Lexington and",
+      "start": 15.00,
+      "duration": 0.00
+    },
+    {
+      "txt": "Concord has inflamed the colonies the",
+      "start": 20.00,
+      "duration": 0.00
+    }
+  ]
+},
+{
+  "title": "American Revolutionary War - Timelines and Maps - Animated US History",
+  "url": "https://www.youtube.com/watch?v=NdRuU5ON-LU",
+  "channel": "Past To Future",
+  "transcript": [
+    {
+      "txt": "the american revolutionary war",
+      "start": 3.00,
+      "duration": 2.00
+    },
+    {
+      "txt": "also called the american revolution was",
+      "start": 5.00,
+      "duration": 2.00
+    }
+  ]
+},
+{
+  "title": "The American Revolutionary War for Kids: Learn About the Revolutionary War for Children - FreeSchool",
+  "url": "https://www.youtube.com/watch?v=BWtW0gmh3kg",
+  "channel": "Free School",
+  "transcript": [
+    {
+      "txt": "You're watching FreeSchool!",
+      "start": 2.00,
+      "duration": 4.00
+    },
+    {
+      "txt": "In the late 1700s, the relationship between Great Britain and its thirteen colonies in",
+      "start": 6.00,
+      "duration": 6.00
+    }
+  ]
+}
+]
+}

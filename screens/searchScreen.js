@@ -1,23 +1,22 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import results from "./public/results.json"
-import searchScreen from "./screens/searchScreen"
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, TextInput } from 'react-native';
+import results from "../public/results.json"
+import Search from "../component/search"
+  
 
-const Stack = createStackNavigator();
+const searchScreenTitle = "Golec"
 
-const App = () => {
+const searchScreen = () => {
+  
   console.log(results)
   return (
-    <NavigationContainer>
-    {/* Hide navigator header */}
-    <Stack.Navigator screenOptions={{headerShown: false}}> 
-      <Stack.Screen name="searchScreen"
-        component={searchScreen}
-      />
-    </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.banner}> {searchScreenTitle} </Text> 
+      
+      <View>
+      <Search />
+      </View>
+    </SafeAreaView>
   );
 };
   
@@ -57,4 +56,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default searchScreen;
