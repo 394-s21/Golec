@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, TextInput, Image, Linking } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, TextInput, Image, Linking, Platform } from 'react-native';
 import results from "../public/results.json"
+import styles from "../assets/Styles"
   
 
 const searchButtonText = "Search"
-const noSearchInput = "no search input"
+const noSearchInput = " "
 
 
 const searchResults = () =>{
@@ -34,18 +35,11 @@ const searchResults = () =>{
 const Search = () => {
   const [searchText, setSearchText] = useState("")
   const [searchTextFinal, setSearchTextFinal] = useState(false)
-  // useEffect(() => {
-  //   if (count > 1) {
-  //     document.title = 'Threshold of over 1 reached.';
-  //   } else {
-  //     document.title = 'No threshold reached.';
-  //   }
-  // }, [searchTextFinal]);
   return (
     <SafeAreaView style={styles.container}>
       <TextInput key = {"searchBox"} 
       onChangeText = {text => setSearchText(text)}
-      placeholder = {"Your answer"} 
+      placeholder = {"Search input"} 
       value={searchText}
       placeholderTextColor='#bbb'
       returnKeyType='search'
@@ -53,13 +47,16 @@ const Search = () => {
       onSubmitEditing={() => setSearchTextFinal(true)}
       clearButtonMode="while-editing"
       multiline={false}
+      style = {styles.formField}
       /> 
       {
         searchTextFinal == false ? <Text> {noSearchInput} </Text>
         :
         <ScrollView contentContainerStyle={{
           flex: 1,
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          width: "100%",
+          padding: 10,
         }}>
         <View style={styles.contentContainer}>
         {
@@ -68,7 +65,13 @@ const Search = () => {
           <View style={styles.contentContainer}>
           { results.video.map((item,inx) => (
             <View key={inx} style={styles.result} >
-              <Text onPress={() => Linking.openURL(item.url)}> {(inx+1)+". "}{item.title} </Text>
+              <Text onPress={() => {
+                if(Platform.OS == 'web'){
+                  window.open(item.url, '_blank');
+              } else {
+                Linking.openURL(directionsurl1)
+              }
+              }} style={styles.titleText}> {(inx+1)+". "}{item.title} </Text>
               <Image
               style={styles.thumbnail}
               key={inx+"Image"}
@@ -81,57 +84,8 @@ const Search = () => {
         </View>
         </ScrollView>
       }
-      
-
     </SafeAreaView>
   );
 };
-  
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 20,
-  },
-  contentContainer: {
-    alignItems: 'center',
-    width: '100%',
-    maxWidth: 800,
-    paddingHorizontal: 20,
-    flex: 1,
-  },
-  banner: {
-    color: '#888',
-    fontSize: 32,
-  },
-  courseList: {
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-  tinyLogo: {
-    width: "30%",
-    height: "20%",
-  },
-  thumbnail: {
-    width: "100%",
-    height: "80%",
-  },
-  result:{
-    width: "60%",
-    height: "70%",
-    alignItems: 'center',
-    padding: 0,
-  },
-
-  courseText:{
-    color: '#fff',
-    fontSize: 12,
-    textAlign: 'center',
-  },
-});
 
 export default Search;

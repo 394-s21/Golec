@@ -1,5 +1,30 @@
 {
-"video": [{
+
+"video": [
+  {
+  "thumbnail": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOVP.Mo14CHs89NeSbhZsO4PxbAHgFo%26pid%3DApi&f=1",
+  "title": "The Revolutionary War: Animated Battle Map",
+  "url": "https://www.youtube.com/watch?v=0JLvRJzvOic&t=645s",
+  "channel": "American Battlefield Trust",
+  "transcript": [
+    {
+      "txt": "Hooooooly smokes!",
+      "start": 1.00,
+      "duration": 1.00
+    },
+    {
+      "txt": "Christopher Columbus!",
+      "start": 2.00,
+      "duration": 1.00
+    },
+    {
+      "txt": "That is no way to address the King and Queen of Spain! What is wrong with you?",
+      "start": 3.00,
+      "duration": 3.00
+    }
+  ]
+  },
+  {
   "thumbnail": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.9GBQWuAq4sedZZden5B71gHaEK%26pid%3DApi&f=1",
   "title": "The American Revolution - Oversimplified (Part 1)",
   "url": "https://www.youtube.com/watch?v=gzALIXcY4pg",
