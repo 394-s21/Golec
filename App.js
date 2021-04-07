@@ -8,13 +8,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 const App = () => {
-  console.log(results)
+  // console.log(results)
   return (
     <NavigationContainer>
     {/* Hide navigator header */}
     <Stack.Navigator screenOptions={{headerShown: false}}> 
-      <Stack.Screen name="searchScreen"
-        component={searchScreen}
+      <Stack.Screen name="SearchScreen"
+        component={SearchScreen}
       />
     </Stack.Navigator>
     </NavigationContainer>

@@ -5,40 +5,70 @@ import results from "../public/results.json"
 
 const searchButtonText = "Search"
 
+
 const searchResults = () =>{
   console.log(results.video.map((item,inx) => (
     item.title
     )))
   return(
-  results == undefined ? <Text>{"No result available"}</Text>
-  :
-  <View>
-  { results.video.map((item,inx) => (
-    <View key={inx} >
-      <Text >{(inx+1)+". "}{item.title}</Text>
+    <ScrollView >
+      <View>
+    {
+    results == undefined ? <Text>{"No result available"}</Text>
+    :
+    <View>
+    { results.video.map((item,inx) => (
+      <View key={inx} >
+        <Text >{(inx+1)+". "}{item.title}</Text>
+      </View>
+      ))
+    }
     </View>
-    ))
-  }
-  </View>
-  )
+    }
+    </View>
+    </ScrollView>
+  )  
 }
 
 const Search = () => {
-  const [value, onChangeText] = useState('');
-  console.log(results)
+  const [searchText, setSearchText] = useState("")
+  const [searchTextFinal, setSearchTextFinal] = useState(false)
+  // useEffect(() => {
+  //   if (count > 1) {
+  //     document.title = 'Threshold of over 1 reached.';
+  //   } else {
+  //     document.title = 'No threshold reached.';
+  //   }
+  // }, [searchTextFinal]);
   return (
     <SafeAreaView style={styles.container}>
       <TextInput key = {"searchBox"} 
-      onChangeText = {text => onChangeText(text)}
+      onChangeText = {text => setSearchText(text)}
       placeholder = {"Your answer"} 
-      value={value}
+      value={searchText}
       placeholderTextColor='#bbb'
       returnKeyType='search'
       autoFocus={true}
-      onSubmitEditing={searchResults}
+      onSubmitEditing={() => setSearchTextFinal(true)}
       clearButtonMode="while-editing"
       /> 
- 
+      <Text> {searchTextFinal} </Text>
+      {/* <ScrollView>
+      <View>
+      {
+        results == undefined ? <Text>{"No result available"}</Text>
+        :
+        <View>
+        { results.video.map((item,inx) => (
+          <View key={inx} >
+            <Text >{(inx+1)+". "}{item.title}</Text>
+          </View>
+          ))
+        }
+        </View>
+      }
+      </View>
+      </ScrollView> */}
       {/* <TouchableOpacity  onPress={searchResults}>
         <Text>{searchButtonText}</Text>
       </TouchableOpacity> */}

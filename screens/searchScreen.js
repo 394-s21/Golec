@@ -6,16 +6,13 @@ import Search from "../component/search"
 
 const searchScreenTitle = "Golec"
 
-const searchScreen = () => {
+const SearchScreen = () => {
   
   console.log(results)
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.banner}> {searchScreenTitle} </Text> 
-      
-      <View>
       <Search />
-      </View>
     </SafeAreaView>
   );
 };
