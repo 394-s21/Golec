@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, TextInput } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, TextInput, Image, Linking } from 'react-native';
 import results from "../public/results.json"
   
 
 const searchButtonText = "Search"
+const noSearchInput = "no search input"
 
 
 const searchResults = () =>{
@@ -51,27 +52,37 @@ const Search = () => {
       autoFocus={true}
       onSubmitEditing={() => setSearchTextFinal(true)}
       clearButtonMode="while-editing"
+      multiline={false}
       /> 
-      <Text> {searchTextFinal} </Text>
-      {/* <ScrollView>
-      <View>
       {
-        results == undefined ? <Text>{"No result available"}</Text>
+        searchTextFinal == false ? <Text> {noSearchInput} </Text>
         :
-        <View>
-        { results.video.map((item,inx) => (
-          <View key={inx} >
-            <Text >{(inx+1)+". "}{item.title}</Text>
+        <ScrollView contentContainerStyle={{
+          flex: 1,
+          justifyContent: 'space-between'
+        }}>
+        <View style={styles.contentContainer}>
+        {
+          results == undefined ? <Text>{"No result available"}</Text>
+          :
+          <View style={styles.contentContainer}>
+          { results.video.map((item,inx) => (
+            <View key={inx} style={styles.result} >
+              <Text onPress={() => Linking.openURL(item.url)}> {(inx+1)+". "}{item.title} </Text>
+              <Image
+              style={styles.thumbnail}
+              key={inx+"Image"}
+              source={{uri: item.thumbnail}} />
+            </View>
+            ))
+          }
           </View>
-          ))
         }
         </View>
+        </ScrollView>
       }
-      </View>
-      </ScrollView> */}
-      {/* <TouchableOpacity  onPress={searchResults}>
-        <Text>{searchButtonText}</Text>
-      </TouchableOpacity> */}
+      
+
     </SafeAreaView>
   );
 };
@@ -82,6 +93,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 20,
+  },
+  contentContainer: {
+    alignItems: 'center',
+    width: '100%',
+    maxWidth: 800,
+    paddingHorizontal: 20,
+    flex: 1,
   },
   banner: {
     color: '#888',
@@ -94,17 +112,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
-  courseButton: {
-    borderRadius: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 10,
-    height: 60,
-    padding: 10,
-    minWidth: 90,
-    maxWidth: 90,
-    backgroundColor: '#66b0ff',
+  tinyLogo: {
+    width: "30%",
+    height: "20%",
   },
+  thumbnail: {
+    width: "100%",
+    height: "80%",
+  },
+  result:{
+    width: "60%",
+    height: "70%",
+    alignItems: 'center',
+    padding: 0,
+  },
+
   courseText:{
     color: '#fff',
     fontSize: 12,

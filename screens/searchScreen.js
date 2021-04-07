@@ -1,7 +1,7 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, TextInput } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, TextInput, Image } from 'react-native';
 import results from "../public/results.json"
-import Search from "../component/search"
+import Search from "../component/Search"
   
 
 const searchScreenTitle = "Golec"
@@ -11,7 +11,10 @@ const SearchScreen = () => {
   console.log(results)
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.banner}> {searchScreenTitle} </Text> 
+      <Image
+        style={styles.tinyLogo}
+        source={require('../assets/logo.png')}
+      />
       <Search />
     </SafeAreaView>
   );
@@ -27,6 +30,10 @@ const styles = StyleSheet.create({
   banner: {
     color: '#888',
     fontSize: 32,
+  },
+  tinyLogo: {
+    width: "30%",
+    height: "20%",
   },
   courseList: {
     flex: 1,
