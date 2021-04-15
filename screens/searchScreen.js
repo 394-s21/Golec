@@ -9,7 +9,7 @@ const searchScreenTitle = "Golec"
 
 const SearchScreen = () => {
   
-  console.log(results)
+  // console.log(results)
   return (
     <SafeAreaView style={styles.container}>
       <Image
