@@ -5,28 +5,46 @@ import styles from "../assets/Styles"
   
 const Result = (props) => {
     let links = []
-    for (i = 0; i < props.links.length; i++){
+    props.data.links.map((item, idx) => {
         links.push(<Text onPress={() => {
-            if(Platform.OS == 'web'){
-              window.open(props.links[i], '_blank');
-          } else {
-            Linking.openURL(directionsurl1) // Not sure what this is.
-          }
-          }}>Link {i}</Text>)
-    }
+            if (Platform.OS = 'web') {
+                window.open(item, '_blank');
+            } else {
+                Linking.openURL(props.data.links[i]);
+            }
+        }}>Link {idx}</Text>)
+    })
+    // for (i = 0; i < props.data.links.length; i++){
+    //     links.push(<Text onPress={() => {
+    //         if(Platform.OS == 'web'){
+    //           window.open(props.data.links[i], '_blank');
+    //       } else {
+    //         Linking.openURL(props.data.links[i]) // Not sure what this is.
+    //       }
+    //       }}>Link {i}</Text>)
+    // }
     return (
         <View>
             <View>
                 <Image>
-                source={{uri: props.thumbnail}}
+                source={{uri: props.data.thumbnail}}
+                onPress={() => {
+                    if (Platform.OS =='web') {
+                        window.open(`https://www.youtube.com/watch?v=${props.data.id}`)
+                    } else {
+                        Linking.openURL(`https://www.youtube.com/watch?v=${props.data.id}`)
+                    }
+                }}
                 </Image>
                 <View>
-                    <Text>{ props.title }</Text>
-                    <Text>{ props.description }</Text>
+                    <Text>{ props.data.title }</Text>
+                    <Text>{ props.data.description }</Text>
                 </View>
             </View>
             <View>
-                {/* Links? */}
+                {links.map((item,idx) => {
+                    return item;
+                })}
             </View>
         </View>
     )

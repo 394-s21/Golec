@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, TextInput, Image, Linking, Platform } from 'react-native';
 import searchResult from "../public/results.json"
+import Result from "./Result"
 import styles from "../assets/Styles"
   
 
@@ -41,7 +42,7 @@ const Search = () => {
   const [searchTextFinal, setSearchTextFinal] = useState(false)
   const [searchResult, setSearchResult] = useState();
 
-  const GetSearchResult =  () => {
+  const GetSearchResult = () => {
     const url = `https://api.golec.christopherkapic.com/search/${searchText}/${secondarySearchText}`
     useEffect(() => {
       const fetchSearchResult = async () => {
@@ -65,6 +66,7 @@ const Search = () => {
         searchResult == undefined ? <Text>{"Searching ... "}</Text>
         :
         <View style={styles.contentContainer}>
+        {/* <Result data={searchResult[0]} /> */}
         {searchResult.map((item,inx) => (
         <View key={inx} style={styles.result} >
           <Text onPress={() => {
