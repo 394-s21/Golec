@@ -1,13 +1,14 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, TextInput, Image } from 'react-native';
 import results from "../public/results.json"
-import Search from "../component/Search"
+import SearchResult from "../component/SearchResult"
 import styles from "../assets/Styles"
+
   
 
 const searchScreenTitle = "Golec"
 
-const SearchScreen = ({navigation}) => {
+const ResultScreen = ({navigation}) => {
   
   // console.log(results)
   return (
@@ -16,12 +17,10 @@ const SearchScreen = ({navigation}) => {
         style={styles.tinyLogo}
         source={require('../assets/Logo.png')}
       />
-      {/* <Search navigation = {navigation}/>
-       */}
-       <Search/>
+      <SearchResult />
     </SafeAreaView>
   );
 };
   
 
-export default SearchScreen;
+export default ResultScreen;

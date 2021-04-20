@@ -3,9 +3,8 @@ import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, Tex
 import searchResult from "../public/results.json"
 import Result from "./Result"
 import styles from "../assets/Styles"
-import getSearchResult from './getSearchResult';
-import showSearchResult from './showSearchResult';
-  
+// import getSearchResult from './getSearchResult';
+import SearchResult from "./SearchResult"; 
 
 const searchButtonText = "Search"
 const noSearchInput = " "
@@ -45,10 +44,23 @@ const Search = () => {
   const [secondarySearchText, setSecondarySearchText] = useState("")
   const [searchTextFinal, setSearchTextFinal] = useState(false)
   const [searchResult, setSearchResult] = useState();
-  const Wrapper = (firstTerm, secondTerm) => {
-    let results = getSearchResult(`https://api.golec.christopherkapic.com/search/${firstTerm}/${secondTerm}`)
-    setData(results) 
-  }
+
+  const getSearchResult = (url) => {
+    fetch(url)
+    .then(res => {
+        if(!res.ok){
+            throw Error('Could not fetch the data for that resource...')
+        }
+        return res.json()
+    })
+    .then((data) => {
+        setData(data);
+        console.log(data)
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
   // const GetSearchResult = () => {
   //   const url = `https://api.golec.christopherkapic.com/search/${searchText}/${secondarySearchText}`
   //   useEffect(() => {
@@ -103,8 +115,7 @@ const Search = () => {
       placeholderTextColor='#bbb'
       returnKeyType='search'
       autoFocus={true}
-      onSubmitEditing={() => 
-        setSearchTextFinal(true)}
+      onSubmitEditing={() => getSearchResult(`https://api.golec.christopherkapic.com/search/${searchText}/${secondarySearchText}`)}
       clearButtonMode="while-editing"
       multiline={false}
       style = {styles.formField}
@@ -116,7 +127,7 @@ const Search = () => {
       placeholderTextColor='#bbb'
       returnKeyType='search'
       autoFocus={true}
-      onSubmitEditing={() => Wrapper(searchText, secondarySearchText)}
+      onSubmitEditing={() => getSearchResult(`https://api.golec.christopherkapic.com/search/${searchText}/${secondarySearchText}`)}
         // setSearchTextFinal(true)}
         // getSearchResult(searchText, secondarySearchText,setSearchResult)}}
       clearButtonMode="while-editing"
@@ -142,10 +153,22 @@ const Search = () => {
           //   setSchedule(json);
           // }
         }
-        {data && <showSearchResult results = {data}/>}
+        {console.log("Hello world")} 
+        {console.log(data)}
+        {data && <SearchResult results = {data}></SearchResult>}
+
         </View>
         </ScrollView>
       }
+      <ScrollView contentContainerStyle={{
+          flex: 1,
+          justifyContent: 'space-between',
+          width: "100%",
+          padding: 10,
+        }}>
+          {/* {!!data && console.log(data)} */}
+          {!!data && <SearchResult results = {data}></SearchResult>}
+      </ScrollView>
     </SafeAreaView>
   );
 };
