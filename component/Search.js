@@ -135,39 +135,13 @@ const Search = () => {
       style = {styles.formField}
       /> 
       {/* <Text> {secondarySearchText + "+ " + searchText} </Text> */}
-      {
-        searchTextFinal == false ? <Text> {noSearchInput} </Text>
-        :
-        <ScrollView contentContainerStyle={{
-          flex: 1,
-          justifyContent: 'space-between',
-          width: "100%",
-          padding: 10,
-        }}>
-        <View style={styles.contentContainer}>
-        {
-          // const fetchSchedule =  async () => {
-          //   const response = await fetch(url);
-          //   if (!response.ok) throw response;
-          //   const json = await response.json();
-          //   setSchedule(json);
-          // }
-        }
-        {console.log("Hello world")} 
-        {console.log(data)}
-        {data && <SearchResult results = {data}></SearchResult>}
-
-        </View>
-        </ScrollView>
-      }
       <ScrollView contentContainerStyle={{
           flex: 1,
           justifyContent: 'space-between',
           width: "100%",
           padding: 10,
         }}>
-          {/* {!!data && console.log(data)} */}
-          {!!data && <SearchResult results = {data}></SearchResult>}
+          {!!data && <SearchResult results = {data}/>}
       </ScrollView>
     </SafeAreaView>
   );
