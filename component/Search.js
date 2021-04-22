@@ -71,7 +71,7 @@ const Search = () => {
         <View key={inx} style={styles.result} >
           <Text onPress={() => {
             if(Platform.OS == 'web'){
-              window.open(item.url, '_blank');
+              window.open(`https://www.youtube.com/watch?v=${item.id}`, '_blank');
           } else {
             Linking.openURL(directionsurl1)
           }
