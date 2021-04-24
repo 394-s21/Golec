@@ -135,14 +135,15 @@ const Search = () => {
       style = {styles.formField}
       /> 
       {/* <Text> {secondarySearchText + "+ " + searchText} </Text> */}
-      <ScrollView contentContainerStyle={{
+      {/* <ScrollView contentContainerStyle={{
           flex: 1,
           justifyContent: 'space-between',
           width: "100%",
           padding: 10,
         }}>
           {!!data && <SearchResult results = {data}/>}
-      </ScrollView>
+      </ScrollView> */}
+      {!!data && <SearchResult results = {data}/>}
     </SafeAreaView>
   );
 };

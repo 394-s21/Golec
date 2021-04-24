@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Image, TouchableOpacity, Text,Platform, Linking} from 'react-native';
 import styles from "../assets/Styles";
 import { Link } from "react-router-dom"; 
-
+import "../assets/styles.css"
 const SearchResult = (props) => {
     const RESULTS = props.results 
     console.log(RESULTS)
@@ -19,11 +19,11 @@ const SearchResult = (props) => {
       //     </View>
       //   ))}
       // </View> 
-      <View>
+      <View style={styles.resultsContainer}>
         {RESULTS.map((result, index) => (
-          <View key = {index}>
-            <Text>{result.title}</Text>
-            <Text> {result.description} </Text>
+          <View key = {index} style={styles.eachResult}>
+            <Text style= {styles.courseText}>{result.title}</Text>
+            {/* <Text style={styles.courseText}> {result.description} </Text> */}
             <Image style={styles.thumbnail} key = {index + "Image"} source = {{uri: result.thumbnail}}></Image>
           </View>)
        )}
