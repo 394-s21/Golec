@@ -42,7 +42,8 @@ const Styles = StyleSheet.create({
   },
   thumbnail: {
     width: "100%",
-    height: "80%",
+    // resizeMode: "contain",
+    height: "50%",
   },
   result:{
     width: "60%",
@@ -62,9 +63,17 @@ const Styles = StyleSheet.create({
     backgroundColor: '#66b0ff',
   },
   courseText:{
-    color: '#fff',
-    fontSize: 12,
+    color: 'black',
+    fontSize: 20,
     textAlign: 'center',
+  },
+  resultsContainer:{
+    width: "100%",
+    height: "100%",
+    display:"flex",
+    flexDirection: "column",
+    flexWrap: "wrap",
+    justifyContent: "center",
   },
 });
 
