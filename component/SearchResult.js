@@ -2,7 +2,6 @@ import React from 'react';
 import {View, Image, TouchableOpacity, Text,Platform, Linking} from 'react-native';
 import styles from "../assets/Styles";
 import { Link } from "react-router-dom"; 
-import "../assets/styles.css"
 const SearchResult = (props) => {
     const RESULTS = props.results 
     console.log(RESULTS)
