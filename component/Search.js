@@ -45,7 +45,6 @@ const Search = () => {
   const [searchTextFinal, setSearchTextFinal] = useState(false)
   const [searchResult, setSearchResult] = useState();
 
-alanBranch
   const getSearchResult = (url) => {
     fetch(url)
     .then(res => {
