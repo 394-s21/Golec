@@ -40,6 +40,15 @@ const Result = (props) => {
                     <Text>{ props.data.title }</Text>
                     <Text>{ props.data.description }</Text>
                 </View>
+                {props.data.links.map((link, idx) => (
+                    <Text onClick={() => {
+                        if (Platform.OS == 'web') {
+                        window.open(link);
+                        } else {
+                        Linking.openURL(link);
+                        }
+                    }}>{intToTime(parseInt(link.split("=")[1]))}</Text>
+                ))}
             </View>
             <View>
                 {links.map((item,idx) => {

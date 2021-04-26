@@ -56,6 +56,12 @@ const Search = () => {
     return  <ShowSearchResult />
     // return  <ShowSearchResult searchResult={searchResult} />
   }
+
+  const intToTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const second = Math.ceil(seconds % 60);
+    return `${minutes}:${second}`;
+  }
   
   const ShowSearchResult =  () => {
     // var searchResult = await searchAPI(searchText,secondarySearchText)
@@ -80,6 +86,15 @@ const Search = () => {
           style={styles.thumbnail}
           key={inx+"Image"}
           source={{uri: item.thumbnail}} />
+          {item.links.map((link, idx) => (
+              <TouchableOpacity onClick={() => {
+                if (Platform.OS == 'web') {
+                  window.open(link);
+                } else {
+                  Linking.openURL(link);
+                }
+              }}><Text>{intToTime(parseInt(link.split("=")[1]))}</Text></TouchableOpacity>
+            ))}
         </View>
         ))}
         </View>
