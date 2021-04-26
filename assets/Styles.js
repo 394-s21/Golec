@@ -42,8 +42,7 @@ const Styles = StyleSheet.create({
   },
   thumbnail: {
     width: "100%",
-    // resizeMode: "contain",
-    height: "50%",
+    resizeMode: "contain",
   },
   result:{
     width: "60%",
@@ -64,17 +63,22 @@ const Styles = StyleSheet.create({
   },
   courseText:{
     color: 'black',
-    fontSize: 20,
+    fontSize: 15,
     textAlign: 'center',
   },
   resultsContainer:{
     width: "100%",
     height: "100%",
-    display:"flex",
-    flexDirection: "column",
+    flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
   },
+  eachResult:{
+    flexDirection: "column",
+  },
+  text:{
+    marginBottom: 20, 
+  }
 });
 
 export default Styles;
