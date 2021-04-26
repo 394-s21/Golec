@@ -24,7 +24,8 @@ const Styles = StyleSheet.create({
     borderRadius: 20,
     borderColor: '#888888',
     fontSize: 18,
-    height: 50
+    height: 50,
+    outlineStyle: 'none'
   },
   tinyLogo: {
     width: 314,
