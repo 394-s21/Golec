@@ -65,6 +65,7 @@ const Styles = StyleSheet.create({
     color: 'black',
     fontSize: 15,
     textAlign: 'center',
+    
   },
   resultsContainer:{
     width: "100%",
