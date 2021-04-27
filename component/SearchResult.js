@@ -4,6 +4,13 @@ import styles from "../assets/Styles";
 const SearchResult = (props) => {
     const RESULTS = props.results 
     console.log(RESULTS)
+
+    const intToTime = (seconds) => {
+      const minutes = Math.floor(seconds / 60);
+      const second = Math.ceil(seconds % 60);
+      return `${minutes}:${second}`;
+    }
+
     return (
       <View>
         {RESULTS.map((result, index) => (
@@ -19,6 +26,13 @@ const SearchResult = (props) => {
             <img src={result.thumbnail} alt=""/>
             </TouchableOpacity>
             {/* <Image key = {index + "Image"} source = {{uri: result.thumbnail}}></Image> */}
+            {result.links.map((link, idx) => (
+              <Text onPress={() => {
+                if (Platform.OS == 'web') {
+                  window.open(link, '_blank');
+                }
+              }}>{intToTime(link.split('=')[1])}</Text>
+            ))}
           </View>)
        )}
       </View>
