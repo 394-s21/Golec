@@ -6,7 +6,6 @@ import {decode} from 'html-entities';
 const SearchResult = (props) => {
     const RESULTS = props.results 
     console.log(RESULTS)
-    const entities = new Html5Entities();
 
     const padSeconds = (num) => {
       let to_return = num.toString();
