@@ -8,10 +8,18 @@ const SearchResult = (props) => {
     console.log(RESULTS)
     const entities = new Html5Entities();
 
+    const padSeconds = (num) => {
+      let to_return = num.toString();
+      if (to_return.length < 2) {
+        to_return = '0' + to_return;
+      }
+      return to_return;
+    }
+
     const intToTime = (seconds) => {
       const minutes = Math.floor(seconds / 60);
       const second = Math.ceil(seconds % 60);
-      return `${minutes}:${second}`;
+      return `${minutes}:${padSeconds(second)}`;
     }
 
     return (
@@ -30,11 +38,11 @@ const SearchResult = (props) => {
             </TouchableOpacity>
             {/* <Image key = {index + "Image"} source = {{uri: result.thumbnail}}></Image> */}
             {result.links.map((link, idx) => (
-              <Text onPress={() => {
+              <TouchableOpacity onPress={() => {
                 if (Platform.OS == 'web') {
                   window.open(link, '_blank');
                 }
-              }}>{intToTime(link.split('=')[1])}</Text>
+              }}><Text>{intToTime(link.split('=')[1])}</Text></TouchableOpacity>
             ))}
           </View>)
        )}
