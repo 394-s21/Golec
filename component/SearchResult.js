@@ -31,17 +31,17 @@ const SearchResult = (props) => {
                 window.open(`https://www.youtube.com/watch?v=${result.id}`, '_blank');
               }
             }}>
-            <Text style = {Styles.courseText}>{decode(result.title)}</Text>
-            {/* <Text style={styles.courseText}> {result.description} </Text> */}
+            <Text style = {Styles.blackText}>{decode(result.title)}</Text>
+            {/* <Text style={Styles.courseText}> {result.description} </Text> */}
             <img src={result.thumbnail} alt=""/>
             </TouchableOpacity>
             {/* <Image key = {index + "Image"} source = {{uri: result.thumbnail}}></Image> */}
             {result.links.map((link, idx) => (
               <TouchableOpacity onPress={() => {
                 if (Platform.OS == 'web') {
-                  window.open(link, '_blank');
-                }
-              }}><Text>{intToTime(link.split('=')[1])}</Text></TouchableOpacity>
+                  window.open(link, '_blank');}}}>
+                <Text>{intToTime(link.split('=')[1])}</Text>
+              </TouchableOpacity>
             ))}
           </View>)
        )}

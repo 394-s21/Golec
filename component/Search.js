@@ -56,9 +56,15 @@ const Search = () => {
       /> 
       <TouchableOpacity style = {Styles.courseButton}
         onPress={() => getSearchResult(`https://api.golec.christopherkapic.com/search/${searchText}/${secondarySearchText}`)}>
-          <Text style={Styles.courseText}>
+          <Text style={Styles.whiteText}>
             {'Submit'}
-            </Text>          
+          </Text>      
+          {/* <View style = {Styles.container}>
+            <Image
+              source={require('../assets/white-search.png')}
+              style={{heigh:150, width: 150}}>
+            </Image>  
+          </View>  */}
       </TouchableOpacity>
       <ScrollView>
         {!!data && <SearchResult results = {data}/>}
