@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import results from "./public/results.json"
-import styles from "./assets/Styles"
+import Styles from "./assets/Styles"
 import SearchScreen from "./screens/SearchScreen"
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';

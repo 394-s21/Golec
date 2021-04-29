@@ -59,13 +59,16 @@ const Styles = StyleSheet.create({
     padding: 10,
     minWidth: 90,
     maxWidth: 90,
-    backgroundColor: '#66b0ff',
+    backgroundColor: '#3DC47D',
   },
-  courseText:{
+  blackText:{
     color: 'black',
-    fontSize: 15,
-    textAlign: 'center',
+    ...baseText,
     
+  },
+  whiteText:{
+    color: 'white',
+    ...baseText,
   },
   resultsContainer:{
     width: "100%",
@@ -74,12 +77,17 @@ const Styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "center",
   },
-  eachResult:{
+  SearchResult:{
     flexDirection: "column",
   },
   text:{
     marginBottom: 20, 
   }
 });
+
+const baseText = {
+  fontSize: 15,
+  textAlign: 'center',
+}
 
 export default Styles;

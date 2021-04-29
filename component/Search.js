@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View, TextInput, Image, Linking, Platform } from 'react-native';
-import styles from "../assets/Styles"
+import Styles from '../assets/Styles';
 import SearchResult from "./SearchResult"; 
 
 const searchButtonText = "Search"
@@ -29,7 +29,7 @@ const Search = () => {
     })
 }
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={Styles.container}>
       <TextInput key = {"searchBox"} 
       onChangeText = {text => setSearchText(text)}
       placeholder = {"Search videos"} 
@@ -40,7 +40,7 @@ const Search = () => {
       onSubmitEditing={() => getSearchResult(`https://api.golec.christopherkapic.com/search/${searchText}/${secondarySearchText}`)}
       clearButtonMode="while-editing"
       multiline={false}
-      style = {styles.formField}
+      style = {Styles.formField}
       /> 
       <TextInput key = {"SecondarySearchBox"} 
       onChangeText = {text => setSecondarySearchText(text)}
@@ -52,8 +52,20 @@ const Search = () => {
       onSubmitEditing={() => getSearchResult(`https://api.golec.christopherkapic.com/search/${searchText}/${secondarySearchText}`)}
       clearButtonMode="while-editing"
       multiline={false}
-      style = {styles.formField}
+      style = {Styles.formField}
       /> 
+      <TouchableOpacity style = {Styles.courseButton}
+        onPress={() => getSearchResult(`https://api.golec.christopherkapic.com/search/${searchText}/${secondarySearchText}`)}>
+          <Text style={Styles.whiteText}>
+            {'Submit'}
+          </Text>      
+          {/* <View style = {Styles.container}>
+            <Image
+              source={require('../assets/white-search.png')}
+              style={{heigh:150, width: 150}}>
+            </Image>  
+          </View>  */}
+      </TouchableOpacity>
       <ScrollView>
         {!!data && <SearchResult results = {data}/>}
       </ScrollView>

@@ -4,8 +4,6 @@ import results from "../public/results.json"
 import SearchResult from "../component/SearchResult"
 import styles from "../assets/Styles"
 
-  
-
 const searchScreenTitle = "Golec"
 
 const ResultScreen = ({navigation}) => {
