@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Image, TouchableOpacity, Text,Platform, Linking} from 'react-native';
-import styles from "../assets/Styles";
+import Styles from "../assets/Styles";
 import {decode} from 'html-entities';
 
 const SearchResult = (props) => {
@@ -31,7 +31,7 @@ const SearchResult = (props) => {
                 window.open(`https://www.youtube.com/watch?v=${result.id}`, '_blank');
               }
             }}>
-            <Text style= {styles.courseText}>{decode(result.title)}</Text>
+            <Text style = {Styles.courseText}>{decode(result.title)}</Text>
             {/* <Text style={styles.courseText}> {result.description} </Text> */}
             <img src={result.thumbnail} alt=""/>
             </TouchableOpacity>
