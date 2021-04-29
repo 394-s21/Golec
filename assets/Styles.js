@@ -50,6 +50,11 @@ const Styles = StyleSheet.create({
     alignItems: 'center',
     padding: 0,
   },
+  load:{
+    paddingTop: '20px',
+    fontSize: 30,
+    textAlign: 'center',
+  },
   courseButton: {
     borderRadius: 5,
     justifyContent: 'center',

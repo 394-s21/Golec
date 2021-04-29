@@ -9,10 +9,12 @@ const noSearchInput = " "
 
 const Search = () => {
   const [data, setData] = useState(""); 
+  const [loading, setLoading] = useState(""); 
   const [searchText, setSearchText] = useState("")
   const [secondarySearchText, setSecondarySearchText] = useState("")
 
   const getSearchResult = (url) => {
+    setLoading(true)
     fetch(url)
     .then(res => {
         if(!res.ok){
@@ -21,6 +23,7 @@ const Search = () => {
         return res.json()
     })
     .then((data) => {
+        setLoading(false)
         setData(data);
         console.log(data)
     })
@@ -67,7 +70,7 @@ const Search = () => {
           </View>  */}
       </TouchableOpacity>
       <ScrollView>
-        {!!data && <SearchResult results = {data}/>}
+        {(!!data && <SearchResult results = {data}/>) || (!!loading &&<Text style = {Styles.load}> Loading Results...</Text>) }
       </ScrollView>
     </SafeAreaView>
   );
