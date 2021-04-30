@@ -66,6 +66,10 @@ const Styles = StyleSheet.create({
     maxWidth: 90,
     backgroundColor: '#3DC47D',
   },
+  greenText:{
+    ...baseText,
+    color: '#3DC47D', 
+  },
   blackText:{
     color: 'black',
     ...baseText,

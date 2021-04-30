@@ -39,10 +39,11 @@ const SearchResult = (props) => {
             {result.links.map((link, idx) => (
               <TouchableOpacity onPress={() => {
                 if (Platform.OS == 'web') {
-                  window.open(link, '_blank');}}}>
-                <Text>{intToTime(link.split('=')[1])}</Text>
+                  window.open(link[0], '_blank');}}}>
+                <Text> {intToTime(link[0].split('=')[1])} - {link[1]}</Text>
               </TouchableOpacity>
             ))}
+            <Text style={Styles.greenText}>Score: {result.score}</Text>
           </View>)
        )}
       </View>
