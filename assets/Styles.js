@@ -2,12 +2,14 @@ import {StyleSheet} from "react-native"
 
 const Styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 20,
+    
     width: "100%",
     height: "100%",
+    
+
   },
   banner: {
     color: '#888',
@@ -91,12 +93,50 @@ const Styles = StyleSheet.create({
   },
   text:{
     marginBottom: 20, 
+  },
+  button:{
+    alignSelf: 'flex-end',
+    marginTop: 0,
+    marginRight: "5%",
+    borderRadius: 5,
+    margin: 10,
+    height: 30,
+    padding: 10,
+    minWidth: 30,
+    maxWidth: 90,
+    backgroundColor: '#3DC47D',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonContainer:{
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'flex-end',
+    marginRight: "5%",
+  },
+  backButton:{
+    marginTop: 0,
+    marginRight: "5%",
+    borderRadius: 5,
+    margin: 10,
+    height: 30,
+    padding: 10,
+    minWidth: 30,
+    maxWidth: 90,
+    backgroundColor: '#3DC47D',
+    alignItems: 'center',
+    justifyContent: 'center',
   }
+
 });
 
 const baseText = {
   fontSize: 15,
   textAlign: 'center',
+ 
+  
 }
 
 export default Styles;

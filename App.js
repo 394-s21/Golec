@@ -6,6 +6,7 @@ import SearchScreen from "./screens/SearchScreen"
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import ResultScreen from "./screens/ResultsScreen"
+import AuthScreen from "./screens/AuthScreen"
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -19,6 +20,9 @@ const App = () => {
       />
       <Stack.Screen name="ResultScreen"
         component={ResultScreen}
+      />
+      <Stack.Screen name="AuthScreen"
+        component={AuthScreen}
       />
     </Stack.Navigator>
     </NavigationContainer>
