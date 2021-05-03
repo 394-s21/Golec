@@ -31,7 +31,7 @@ const SearchResult = (props) => {
                 window.open(`https://www.youtube.com/watch?v=${result.id}`, '_blank');
               }
             }}>
-            <Text style = {Styles.blackText}>{decode(result.title)}</Text>
+            <Text style = {Styles.titleText}>{decode(result.title)}</Text>
             {/* <Text style={Styles.courseText}> {result.description} </Text> */}
             <img src={result.thumbnail} alt=""/>
             </TouchableOpacity>

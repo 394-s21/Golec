@@ -13,9 +13,6 @@ const Styles = StyleSheet.create({
     color: '#888',
     fontSize: 32,
   },
-  titleText:{
-    fontWeight: 'bold'
-  },
   formField: {
     borderWidth: 1,
     padding: 12,
@@ -52,8 +49,9 @@ const Styles = StyleSheet.create({
   },
   load:{
     paddingTop: '20px',
-    fontSize: 30,
+    fontSize: 20,
     textAlign: 'center',
+    fontFamily: 'Helvetic, Sans-Serif'
   },
   courseButton: {
     borderRadius: 5,
@@ -73,7 +71,13 @@ const Styles = StyleSheet.create({
   blackText:{
     color: 'black',
     ...baseText,
-    
+  },
+  titleText:{
+    color: 'black',
+    fontSize: 30,
+    textAlign: 'center',
+    fontFamily: 'Roboto, sans-serif',
+    fontWeight: 'bold',
   },
   whiteText:{
     color: 'white',
@@ -97,6 +101,7 @@ const Styles = StyleSheet.create({
 const baseText = {
   fontSize: 15,
   textAlign: 'center',
+  fontFamily: 'Helvetica',
 }
 
 export default Styles;
