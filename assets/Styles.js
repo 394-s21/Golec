@@ -74,6 +74,10 @@ const Styles = StyleSheet.create({
     color: 'black',
     ...baseText,
   },
+  blueText:{
+    ...baseText,
+    color: '#2c9fc0',
+  },
   titleText:{
     color: 'black',
     fontSize: 30,
@@ -107,13 +111,21 @@ const Styles = StyleSheet.create({
   },
   videoAndText:{
     flexDirection: "row",
-    justifyContent: "center"
+    justifyContent: "center",
+    alignItems: "space-between",
   },
   timestamps:{
+    minWidth: 307,  
     flexDirection: "column",
-    justifyContent: "center"
+    justifyContent: "center",
+    alignItems: "space-between",
+    marginLeft: 10,
+    marginRight: 10, 
+  },
+  margin:{
+    marginBottom: 15,
+    marginTop: 15, 
   }
-  
 });
 
 const baseText = {

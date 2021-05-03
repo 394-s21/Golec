@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import {View, Image, TouchableOpacity, Text,Platform, Linking, LayoutAnimation } from 'react-native';
+import {View, Image, TouchableOpacity, Text,Platform, Linking, LayoutAnimation, TouchableHighlight } from 'react-native';
 import Styles from "../assets/Styles";
 import {decode} from 'html-entities';
 
 const SearchResult = (props) => {
     const [open, setopen] = useState(false);
     const RESULTS = props.results 
-    console.log(RESULTS)
+    // console.log(RESULTS)
 
     const padSeconds = (num) => {
       let to_return = num.toString();
@@ -25,7 +25,7 @@ const SearchResult = (props) => {
     return (
       <View>
         {RESULTS.map((result, index) => (
-          <View key = {index} >
+          <View key = {index} style={Styles.margin}>
             
             <View>
               <TouchableOpacity onPress= {() => {
@@ -41,7 +41,13 @@ const SearchResult = (props) => {
             <View style = {Styles.videoAndText}>
             {/* <Text style={Styles.courseText}> {result.description} </Text> */}
             <View style={Styles.timestamps}>
-              <Image source={result.thumbnail} alt="" style={Styles.tinyLogo}/>
+              <TouchableHighlight onPress= {() => {
+                if(Platform.OS == 'web'){
+                  window.open(`https://www.youtube.com/watch?v=${result.id}`, '_blank');
+                }
+              }}>
+                <Image source={result.thumbnail} alt="" style={Styles.tinyLogo}/>
+              </TouchableHighlight>
               <Text style={Styles.greenText}>Score: {result.score}</Text>
             </View>
             <View style={Styles.timestamps}>
@@ -56,7 +62,7 @@ const SearchResult = (props) => {
                   <TouchableOpacity key= {idx} onPress={() => {
                     if (Platform.OS == 'web') {
                       window.open(link[0], '_blank');}}}>
-                    <Text> {intToTime(link[0].split('=')[1])} - {link[1]}</Text>
+                    <Text style={Styles.blueText}> {intToTime(link[0].split('=')[1])} - {decode(link[1])}</Text>
                   </TouchableOpacity>
                   ))}
                 </View>
@@ -65,7 +71,6 @@ const SearchResult = (props) => {
             
             
             </View>
-            {/* <Image key = {index + "Image"} source = {{uri: result.thumbnail}}></Image> */}
 
             
 
