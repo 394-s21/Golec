@@ -1,11 +1,12 @@
-import React from 'react';
-import {View, Image, TouchableOpacity, Text,Platform, Linking} from 'react-native';
+import React, {useState} from 'react';
+import {View, Image, TouchableOpacity, Text,Platform, Linking, LayoutAnimation, TouchableHighlight } from 'react-native';
 import Styles from "../assets/Styles";
 import {decode} from 'html-entities';
 
 const SearchResult = (props) => {
+    const [open, setopen] = useState(false);
     const RESULTS = props.results 
-    console.log(RESULTS)
+    // console.log(RESULTS)
 
     const padSeconds = (num) => {
       let to_return = num.toString();
@@ -24,26 +25,56 @@ const SearchResult = (props) => {
     return (
       <View>
         {RESULTS.map((result, index) => (
-          <View key = {index}>
+          <View key = {index} style={Styles.margin}>
             
-            <TouchableOpacity onPress= {() => {
-              if(Platform.OS == 'web'){
-                window.open(`https://www.youtube.com/watch?v=${result.id}`, '_blank');
-              }
-            }}>
-            <Text style = {Styles.blackText}>{decode(result.title)}</Text>
-            {/* <Text style={Styles.courseText}> {result.description} </Text> */}
-            <img src={result.thumbnail} alt=""/>
+            <View>
+              <TouchableOpacity onPress= {() => {
+                if(Platform.OS == 'web'){
+                  window.open(`https://www.youtube.com/watch?v=${result.id}`, '_blank');
+                }
+              }}>
+            
+              <Text style = {Styles.titleText}>{decode(result.title)}</Text>
             </TouchableOpacity>
-            {/* <Image key = {index + "Image"} source = {{uri: result.thumbnail}}></Image> */}
-            {result.links.map((link, idx) => (
-              <TouchableOpacity onPress={() => {
-                if (Platform.OS == 'web') {
-                  window.open(link[0], '_blank');}}}>
-                <Text> {intToTime(link[0].split('=')[1])} - {link[1]}</Text>
-              </TouchableOpacity>
-            ))}
-            <Text style={Styles.greenText}>Score: {result.score}</Text>
+            </View>
+
+            <View style = {Styles.videoAndText}>
+            {/* <Text style={Styles.courseText}> {result.description} </Text> */}
+            <View style={Styles.timestamps}>
+              <TouchableHighlight onPress= {() => {
+                if(Platform.OS == 'web'){
+                  window.open(`https://www.youtube.com/watch?v=${result.id}`, '_blank');
+                }
+              }}>
+                <Image source={result.thumbnail} alt="" style={Styles.tinyLogo}/>
+              </TouchableHighlight>
+              <Text style={Styles.greenText}>Score: {result.score}</Text>
+            </View>
+            <View style={Styles.timestamps}>
+            <TouchableOpacity style={[Styles.blackText, !open && { height: 40 }]} onPress={() => {
+              LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+              setopen(!open);}} activeOpacity={1}>
+              {open == true ? <Text style={Styles.boldText}>Hide mention</Text>
+               : <Text style={Styles.boldText}>Show mention</Text>}
+              {open && (
+                <View>
+                  {result.links.map((link, idx) => (
+                  <TouchableOpacity key= {idx} onPress={() => {
+                    if (Platform.OS == 'web') {
+                      window.open(link[0], '_blank');}}}>
+                    <Text style={Styles.blueText}> {intToTime(link[0].split('=')[1])} - {decode(link[1])}</Text>
+                  </TouchableOpacity>
+                  ))}
+                </View>
+              )}
+            </TouchableOpacity>
+            
+            
+            </View>
+
+            
+
+            </View>
           </View>)
        )}
       </View>
