@@ -1,9 +1,10 @@
-import React from 'react';
-import {View, Image, TouchableOpacity, Text,Platform, Linking} from 'react-native';
+import React, {useState} from 'react';
+import {View, Image, TouchableOpacity, Text,Platform, Linking, LayoutAnimation } from 'react-native';
 import Styles from "../assets/Styles";
 import {decode} from 'html-entities';
 
 const SearchResult = (props) => {
+    const [open, setopen] = useState(false);
     const RESULTS = props.results 
     console.log(RESULTS)
 
@@ -44,13 +45,25 @@ const SearchResult = (props) => {
               <Text style={Styles.greenText}>Score: {result.score}</Text>
             </View>
             <View style={Styles.timestamps}>
-            {result.links.map((link, idx) => (
-              <TouchableOpacity onPress={() => {
-                if (Platform.OS == 'web') {
-                  window.open(link[0], '_blank');}}}>
-                <Text> {intToTime(link[0].split('=')[1])} - {link[1]}</Text>
-              </TouchableOpacity>
-            ))}
+            <TouchableOpacity style={[Styles.blackText, !open && { height: 40 }]} onPress={() => {
+              LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+              setopen(!open);}} activeOpacity={1}>
+              {open == true ? <Text style={Styles.boldText}>Hide mention</Text>
+               : <Text style={Styles.boldText}>Show mention</Text>}
+              {open && (
+                <View>
+                  {result.links.map((link, idx) => (
+                  <TouchableOpacity key= {idx} onPress={() => {
+                    if (Platform.OS == 'web') {
+                      window.open(link[0], '_blank');}}}>
+                    <Text> {intToTime(link[0].split('=')[1])} - {link[1]}</Text>
+                  </TouchableOpacity>
+                  ))}
+                </View>
+              )}
+            </TouchableOpacity>
+            
+            
             </View>
             {/* <Image key = {index + "Image"} source = {{uri: result.thumbnail}}></Image> */}
 

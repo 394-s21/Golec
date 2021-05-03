@@ -81,6 +81,13 @@ const Styles = StyleSheet.create({
     fontFamily: 'Roboto, sans-serif',
     fontWeight: 'bold',
   },
+  boldText:{
+    color: 'black',
+    fontSize: 16,
+    textAlign: 'center',
+    fontFamily: 'Roboto, sans-serif',
+    fontWeight: 'bold',
+  },
   whiteText:{
     color: 'white',
     ...baseText,
