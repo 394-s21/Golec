@@ -17,7 +17,7 @@ const SearchScreen = ({navigation}) => {
       <TouchableOpacity style={styles.button} onPress={() => {
         setLoginType("Login")
         console.log("Before pass: ", loginType)
-        navigation.navigate("AuthScreen",{loginType})}}>
+        navigation.navigate("AuthScreen",{loginType : "check"})}}>
         <Text style={[styles.whiteText]}>Login</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={() => {

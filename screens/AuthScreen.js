@@ -23,12 +23,13 @@ const validationSchema = Yup.object().shape({
     .oneOf([Yup.ref('password'), null], 'Confirmation password must match password'),
 });
 
-const AuthScreen = ({navigation}) => {
+const AuthScreen = ({route,navigation}) => {
   // console.log("login:", loginType)
   // console.log(results)
-
+  console.log(route)
+  const {loginType} = route.params
   const [signInError, setSignInError] = useState('');
-
+  console.log(loginType)
 
   async function handleOnLogin(values) {
       const { email, password } = values;
@@ -68,7 +69,7 @@ const AuthScreen = ({navigation}) => {
       />
 
 
-<ScrollView>
+    <ScrollView>
           <Form
             initialValues={{
               email: '',

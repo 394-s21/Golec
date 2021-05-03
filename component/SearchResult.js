@@ -37,7 +37,7 @@ const SearchResult = (props) => {
             </TouchableOpacity>
             {/* <Image key = {index + "Image"} source = {{uri: result.thumbnail}}></Image> */}
             {result.links.map((link, idx) => (
-              <TouchableOpacity onPress={() => {
+              <TouchableOpacity key = {idx} onPress={() => {
                 if (Platform.OS == 'web') {
                   window.open(link[0], '_blank');}}}>
                 <Text> {intToTime(link[0].split('=')[1])} - {link[1]}</Text>
