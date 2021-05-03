@@ -1,6 +1,7 @@
 import {StyleSheet} from "react-native"
 
 const Styles = StyleSheet.create({
+  
   container: {
     flex: 1,
     alignItems: 'center',
@@ -66,7 +67,8 @@ const Styles = StyleSheet.create({
   },
   greenText:{
     ...baseText,
-    color: '#3DC47D', 
+    color: '#3DC47D',
+    fontWeight: 'bold' 
   },
   blackText:{
     color: 'black',
@@ -95,7 +97,16 @@ const Styles = StyleSheet.create({
   },
   text:{
     marginBottom: 20, 
+  },
+  videoAndText:{
+    flexDirection: "row",
+    justifyContent: "center"
+  },
+  timestamps:{
+    flexDirection: "column",
+    justifyContent: "center"
   }
+  
 });
 
 const baseText = {
