@@ -2,25 +2,12 @@ import React, {useState} from 'react';
 import {View, Image, TouchableOpacity, Text,Platform, Linking, LayoutAnimation, TouchableHighlight } from 'react-native';
 import Styles from "../assets/Styles";
 import {decode} from 'html-entities';
+import Transcript from "./Transcript"
 
 const SearchResult = (props) => {
-    const [open, setopen] = useState(false);
     const RESULTS = props.results 
     // console.log(RESULTS)
 
-    const padSeconds = (num) => {
-      let to_return = num.toString();
-      if (to_return.length < 2) {
-        to_return = '0' + to_return;
-      }
-      return to_return;
-    }
-
-    const intToTime = (seconds) => {
-      const minutes = Math.floor(seconds / 60);
-      const second = Math.ceil(seconds % 60);
-      return `${minutes}:${padSeconds(second)}`;
-    }
 
     return (
       <View>
@@ -48,27 +35,11 @@ const SearchResult = (props) => {
               }}>
                 <Image source={result.thumbnail} alt="" style={Styles.tinyLogo}/>
               </TouchableHighlight>
-              <Text style={Styles.greenText}>Score: {result.score}</Text>
+              <Text style={Styles.greenText}>GoLec Score: {result.score}</Text>
             </View>
             <View style={Styles.timestamps}>
-            <TouchableOpacity style={[Styles.blackText, !open && { height: 40 }]} onPress={() => {
-              LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-              setopen(!open);}} activeOpacity={1}>
-              {open == true ? <Text style={Styles.boldText}>Hide mention</Text>
-               : <Text style={Styles.boldText}>Show mention</Text>}
-              {open && (
-                <View>
-                  {result.links.map((link, idx) => (
-                  <TouchableOpacity key= {idx} onPress={() => {
-                    if (Platform.OS == 'web') {
-                      window.open(link[0], '_blank');}}}>
-                    <Text style={Styles.blueText}> {intToTime(link[0].split('=')[1])} - {decode(link[1])}</Text>
-                  </TouchableOpacity>
-                  ))}
-                </View>
-              )}
-            </TouchableOpacity>
-            
+                
+                <Transcript links = {result.links}/>
             
             </View>
 
