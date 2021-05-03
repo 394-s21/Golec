@@ -67,6 +67,7 @@ const Styles = StyleSheet.create({
   },
   greenText:{
     ...baseText,
+    fontSize: 20,
     color: '#3DC47D',
     fontWeight: 'bold' 
   },
@@ -125,6 +126,9 @@ const Styles = StyleSheet.create({
   margin:{
     marginBottom: 15,
     marginTop: 15, 
+  },
+  scrollResult:{
+    maxHeight: 160
   }
 });
 
