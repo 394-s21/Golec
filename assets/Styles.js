@@ -1,6 +1,7 @@
 import {StyleSheet} from "react-native"
 
 const Styles = StyleSheet.create({
+  
   container: {
     flex: 1,
     alignItems: 'center',
@@ -12,9 +13,6 @@ const Styles = StyleSheet.create({
   banner: {
     color: '#888',
     fontSize: 32,
-  },
-  titleText:{
-    fontWeight: 'bold'
   },
   formField: {
     borderWidth: 1,
@@ -52,8 +50,9 @@ const Styles = StyleSheet.create({
   },
   load:{
     paddingTop: '20px',
-    fontSize: 30,
+    fontSize: 20,
     textAlign: 'center',
+    fontFamily: 'Helvetic, Sans-Serif'
   },
   courseButton: {
     borderRadius: 5,
@@ -68,12 +67,31 @@ const Styles = StyleSheet.create({
   },
   greenText:{
     ...baseText,
-    color: '#3DC47D', 
+    fontSize: 20,
+    color: '#3DC47D',
+    fontWeight: 'bold' 
   },
   blackText:{
     color: 'black',
     ...baseText,
-    
+  },
+  blueText:{
+    ...baseText,
+    color: '#2c9fc0',
+  },
+  titleText:{
+    color: 'black',
+    fontSize: 30,
+    textAlign: 'center',
+    fontFamily: 'Roboto, sans-serif',
+    fontWeight: 'bold',
+  },
+  boldText:{
+    color: 'black',
+    fontSize: 16,
+    textAlign: 'center',
+    fontFamily: 'Roboto, sans-serif',
+    fontWeight: 'bold',
   },
   whiteText:{
     color: 'white',
@@ -91,12 +109,33 @@ const Styles = StyleSheet.create({
   },
   text:{
     marginBottom: 20, 
+  },
+  videoAndText:{
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "space-between",
+  },
+  timestamps:{
+    minWidth: 307,  
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "space-between",
+    marginLeft: 10,
+    marginRight: 10, 
+  },
+  margin:{
+    marginBottom: 15,
+    marginTop: 15, 
+  },
+  scrollResult:{
+    maxHeight: 160
   }
 });
 
 const baseText = {
   fontSize: 15,
   textAlign: 'center',
+  fontFamily: 'Helvetica',
 }
 
 export default Styles;
